@@ -8,7 +8,6 @@ This project involves analyzing user interactions and engagement with the Instag
 
 To execute this project, I followed a systematic approach:
 
-- **Data Collection**: Utilized dummy data provided by my institution, simulating Instagram user information.
 - **Analysis**: Conducted detailed analysis to answer specific questions posed by the management team.
 - **SQL Queries**: Wrote and executed SQL queries in MySQL Workbench to extract relevant data and perform calculations.
 - **Insights Derivation**: Interpreted the results to provide actionable insights.
