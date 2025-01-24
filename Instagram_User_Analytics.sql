@@ -5,14 +5,11 @@ use ig_clone;
 -- Loyal User Reward: The marketing team wants to reward the most loyal users, i.e., those who have been using the platform for the longest time.--
 -- Task: Identify the five oldest users on Instagram from the provided database. --
     
- SELECT 
-    t.tag_name, COUNT(pt.tag_id) AS tag_count
+SELECT 
+    *
 FROM
-    tags t
-        INNER JOIN
-    photo_tags pt ON t.id = pt.tag_id
-GROUP BY t.tag_name
-ORDER BY tag_count DESC
+    users
+ORDER BY created_at
 LIMIT 5;
     
 -- Inactive User Engagement: The team wants to encourage inactive users to start posting by sending them promotional emails.-- 
@@ -131,3 +128,17 @@ FROM
         COUNT(*) AS total_photos
     FROM
         photos) tp ON lc.likes_count = tp.total_photos;
+
+-- Method3 --
+        
+SELECT 
+    user_id, username
+FROM
+    likes
+        INNER JOIN
+    users ON likes.user_id = users.id
+GROUP BY user_id
+HAVING COUNT(DISTINCT photo_id) = (SELECT 
+        COUNT(*)
+    FROM
+        photos);
